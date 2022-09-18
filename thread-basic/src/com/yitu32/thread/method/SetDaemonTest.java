@@ -16,6 +16,7 @@ public class SetDaemonTest {
             }
         }
         System.out.println("main线程结束......");
+        // 因为这里只有一个用户线程，就是main线程，所以，main线程结束，剩下的守护线程都要结束
     }
 }
 
