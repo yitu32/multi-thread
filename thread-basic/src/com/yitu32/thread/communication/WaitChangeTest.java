@@ -9,10 +9,10 @@ public class WaitChangeTest {
             Source.get();
         });
         Thread t2 = new Thread(() -> {
-            Source.add();
+            Source.get();
         });
         Thread t3 = new Thread(() -> {
-            Source.get();
+            Source.add();
         });
         t1.start();
         t2.start();
@@ -30,6 +30,7 @@ class Source {
 
     static void get() {
         synchronized (list) {
+            // if(list.size() == 0) { // 这里如果是if，线程被唤醒时就不会再判断list.size() 就会往下走
             while (list.size() == 0) {
                 try {
                     System.out.println(Thread.currentThread().getName() + " begin wait...");

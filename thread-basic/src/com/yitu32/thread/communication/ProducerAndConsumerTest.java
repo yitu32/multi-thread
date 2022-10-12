@@ -1,5 +1,8 @@
 package com.yitu32.thread.communication;
 
+/**
+ * 生产者消费者模型
+ */
 public class ProducerAndConsumerTest {
 
     public static void main(String[] args) {
@@ -79,7 +82,7 @@ class SourceData {
                 e.printStackTrace();
             }
         }
-        System.out.println(Thread.currentThread().getName() + "当前value的值为=" + value);
+        System.out.println(Thread.currentThread().getName() + "取出当前value的值为=" + value);
         this.value = "";
         notifyAll();
         return value;
